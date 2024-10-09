@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Encuesta from "./Paginas/encuesta"
 import Estado from "./Paginas/estado"
 import Venta from "./Paginas/Venta"
-
+import './css/app.css'
 /*
 Express: npm install express mysql cors body-parser
 Mysql2: npm install mysql2
