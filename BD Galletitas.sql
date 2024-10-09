@@ -12,13 +12,15 @@ Correo varchar(30)
 create table Cliente(
 ID int primary key,
 NombreCompleto varchar(30),
-Telefono int,
+Direccion varchar(30),
+Telefono int(11),
 Correo varchar(30)
 );
 
 create table Camion(
 ID int primary key,
 EmpleadoID int,
+Calificacion int,
 foreign key (EmpleadoID) references Empleado(ID)
 );
 
@@ -36,9 +38,21 @@ Cantidad varchar(30),
 Fecha date,
 CalificacionCliente varchar(30),
 CamionID int,
+PuntoDeControlID int,
 foreign key(ClienteID) references Cliente(ID),
 foreign key(ProductoID) references Producto(ID),
 foreign key(CamionID) references Camion(ID)
+);
+
+create table PuntoDeControl(
+ID int primary key,
+Revision varchar(50),
+PedidoID int,
+ClienteID int,
+EmpleadoID int,
+foreign key(PedidoID) references Pedido(ID),
+foreign key(ClienteID) references Cliente(ID),
+foreign key(EmpleadoID) references Empleado(ID)
 );
 
 create table Encuesta(
