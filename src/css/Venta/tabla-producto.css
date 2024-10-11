@@ -1,0 +1,29 @@
+.sub-tabla-producto {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tabla-producto {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #AB974E;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla-producto th,
+.tabla-producto td {
+  border: 1px solid #ffffff;
+  padding: 10px;
+  text-align: left;
+}
+
+.tabla-producto th {
+  background-color: #B08B5B;
+  color: white;
+}
+
+
+.tabla-producto tr:hover {
+  background-color: #D4B48D;
+}
