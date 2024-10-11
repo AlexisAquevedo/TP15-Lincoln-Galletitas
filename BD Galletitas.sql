@@ -105,12 +105,12 @@ INSERT INTO PuntoDeControl (Direccion) VALUES
 ('Punto de control E, Ciudad V');
 
 -- Inserciones para la tabla Pedido
-INSERT INTO Pedido (ClienteID, ProductoID, CantidadVendida, Fecha, ConductorID, Estado) VALUES
-(1, 1, 50, CURDATE(), 1, 'Entregado'),
-(2, 2, 30, CURDATE(), 2, 'En Proceso'),
-(3, 3, 20, CURDATE(), 3, 'Pendiente'),
-(4, 1, 40, CURDATE(), 4, 'Entregado'),
-(5, 2, 25, CURDATE(), 5, 'En proceso');
+INSERT INTO Pedido (ClienteID, ProductoID, CantidadVendida, Fecha, Estado) VALUES
+(1, 1, 50, CURDATE(),'Entregado'),
+(2, 2, 30, CURDATE(),'En Proceso'),
+(3, 3, 20, CURDATE(),'Pendiente'),
+(4, 1, 40, CURDATE(),'Entregado'),
+(5, 2, 25, CURDATE(),'En proceso');
 
 -- Inserciones para la tabla Encuesta
 INSERT INTO Encuesta (PedidoID, PuntoDeControlID, FechaHoraInspeccion, EstadoMercancia, Observaciones, Satisfaccion) VALUES
