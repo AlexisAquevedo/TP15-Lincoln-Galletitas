@@ -10,12 +10,6 @@ CREATE TABLE Empleado (
     Correo VARCHAR(100)
 );
 
-CREATE TABLE Conductor (
-    ID INT PRIMARY KEY AUTO_INCREMENT,
-    EmpleadoID INT,
-    Calificacion ENUM('1','2','3','4','5','6','7','8','9','10','No Registrada'),
-    FOREIGN KEY (EmpleadoID) REFERENCES Empleado(ID)
-);
 
 CREATE TABLE Cliente (
     ID INT PRIMARY KEY AUTO_INCREMENT,
@@ -40,11 +34,18 @@ CREATE TABLE Pedido (
     ProductoID INT,
     CantidadVendida INT,
     Fecha DATE,
-    ConductorID INT,
-    Estado VARCHAR(30),
+    Estado Enum('En Proceso','Pendiente','Entregado','No Entregado'),
     FOREIGN KEY (ClienteID) REFERENCES Cliente(ID),
-    FOREIGN KEY (ProductoID) REFERENCES Producto(ID),
-    FOREIGN KEY (ConductorID) REFERENCES Conductor(ID)
+    FOREIGN KEY (ProductoID) REFERENCES Producto(ID)
+);
+
+CREATE TABLE Conductor (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    EmpleadoID INT,
+    Calificacion ENUM('1','2','3','4','5','6','7','8','9','10','No Registrada'),
+    PedidoID int,
+    foreign key (PedidoID) references Pedido(ID),
+    FOREIGN KEY (EmpleadoID) REFERENCES Empleado(ID)
 );
 
 CREATE TABLE PuntoDeControl (
@@ -106,7 +107,7 @@ INSERT INTO PuntoDeControl (Direccion) VALUES
 -- Inserciones para la tabla Pedido
 INSERT INTO Pedido (ClienteID, ProductoID, CantidadVendida, Fecha, ConductorID, Estado) VALUES
 (1, 1, 50, CURDATE(), 1, 'Entregado'),
-(2, 2, 30, CURDATE(), 2, 'En proceso'),
+(2, 2, 30, CURDATE(), 2, 'En Proceso'),
 (3, 3, 20, CURDATE(), 3, 'Pendiente'),
 (4, 1, 40, CURDATE(), 4, 'Entregado'),
 (5, 2, 25, CURDATE(), 5, 'En proceso');
